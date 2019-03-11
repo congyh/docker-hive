@@ -1,3 +1,6 @@
+# Usage:
+# docker image build --build-arg HIVE_VERSION=<version> -t congyh/hive:<version>-postgresql-metastore .
+# docker image push congyh/hive:<version>-postgresql-metastore
 FROM bde2020/hadoop-base:2.0.0-hadoop2.7.4-java8
 
 MAINTAINER Yiannis Mouchakis <gmouchakis@iit.demokritos.gr>
