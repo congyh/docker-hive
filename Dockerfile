@@ -51,6 +51,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 10000
 EXPOSE 10002
+EXPOSE 8000
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD startup.sh

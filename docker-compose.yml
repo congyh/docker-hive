@@ -37,6 +37,7 @@ services:
       SERVICE_PRECONDITION: "hive-metastore:9083"
     ports:
       - "10000:10000"
+      - "8000:8000"
   hive-metastore:
     image: congyh/hive:${HIVE_VERSION}-postgresql-metastore
     env_file:
