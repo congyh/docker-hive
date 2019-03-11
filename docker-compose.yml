@@ -1,3 +1,10 @@
+# Usage:
+# export HIVE_VERSION=<version>
+# 首次启动(或版本升级): docker-compose up -d
+# 非首次启动: docker-compose start -d
+# 停止: docker-compose stop
+# 服务连接: docker-compose exec hive-server bash
+
 version: "3"
 
 services:
@@ -22,7 +29,7 @@ services:
     ports:
       - "50075:50075"
   hive-server:
-    image: bde2020/hive:2.3.2-postgresql-metastore
+    image: congyh/hive:${HIVE_VERSION}-postgresql-metastore
     env_file:
       - ./hadoop-hive.env
     environment:
@@ -31,7 +38,7 @@ services:
     ports:
       - "10000:10000"
   hive-metastore:
-    image: bde2020/hive:2.3.2-postgresql-metastore
+    image: congyh/hive:${HIVE_VERSION}-postgresql-metastore
     env_file:
       - ./hadoop-hive.env
     command: /opt/hive/bin/hive --service metastore
@@ -40,7 +47,7 @@ services:
     ports:
       - "9083:9083"
   hive-metastore-postgresql:
-    image: bde2020/hive-metastore-postgresql:2.3.0
+    image: congyh/hive-metastore-postgresql:${HIVE_VERSION}
   presto-coordinator:
     image: shawnzhu/prestodb:0.181
     ports:
