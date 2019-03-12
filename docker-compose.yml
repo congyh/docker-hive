@@ -38,6 +38,8 @@ services:
     ports:
       - "10000:10000"
       - "8000:8000"
+    volumes:
+      - /Users/congyihao/DevelopmentTools/apache-atlas-1.1.0/apache-atlas-1.1.0-hive-hook/apache-atlas-hive-hook-1.1.0/hook/hive/:/Users/congyihao/DevelopmentTools/apache-atlas-1.1.0/apache-atlas-1.1.0-hive-hook/apache-atlas-hive-hook-1.1.0/hook/hive/
   hive-metastore:
     image: congyh/hive:${HIVE_VERSION}-postgresql-metastore
     env_file:
